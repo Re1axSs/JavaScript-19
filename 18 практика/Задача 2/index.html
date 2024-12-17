@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анимация прогресс-бара</title>
+  <style>
+    #progress-bar {
+      width: 0;
+      height: 30px;
+      background-color: #3498db;
+      max-width: 500px;
+      border-radius: 15px;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+<body>
+  <h1>Прогресс-бар с анимацией</h1>
+
+  <div id="progress-bar"></div>
+
+  <script>
+    function progress(time) {
+      const progressBar = document.getElementById('progress-bar');
+      const endTime = Date.now() + time * 1000;
+      let elapsedTime = 0;
+
+      function update() {
+        elapsedTime = (endTime - Date.now()) / 1000;
+        const progress = Math.max(0, Math.min(1, 1 - elapsedTime / time));
+        progressBar.style.width = `${progress * 500}px`;
+
+        if (elapsedTime < time) {
+          requestAnimationFrame(update);
+        } else {
+          progressBar.style.width = '500px';
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    progress(10);
+  </script>
+</body>
+</html>
