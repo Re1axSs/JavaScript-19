@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greeting Example</title>
+</head>
+<body>
+  <script>
+    function greeting() {
+      const username = prompt("Введите имя пользователя");
+      if (!username) {
+        throw new Error("Имя обязательно для заполнения");
+      }
+      alert(`Привет, ${username}!`);
+    }
+
+    try { 
+      greeting();
+    } catch (error) { 
+      alert(error.message);
+    }
+  </script>
+</body>
+</html>

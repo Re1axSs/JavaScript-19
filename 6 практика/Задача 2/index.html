@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск минимального и максимального числа</title>
+</head>
+
+<body>
+
+    <h1>Поиск минимального и максимального числа</h1>
+    <p class="all-elements"></p>
+    <button class="min">Найти минимальное число</button>
+    <button class="max">Найти максимальное число</button>
+    <p>Минимальное число: <span class="minNumber"></span></p>
+    <p>Максимальное число: <span class="maxNumber"></span></p>
+
+    <script>
+        const numbers = [12, 45, 7, 32, 18, 9, 53, 29];
+        const allElements = document.querySelector('.all-elements');
+        allElements.textContent = 'Элементы массива: ' + numbers.join(', ');
+
+        document.querySelector('.min').addEventListener('click', () => {
+            const minNumber = Math.min(...numbers);
+            document.querySelector('.minNumber').textContent = minNumber;
+        });
+
+        document.querySelector('.max').addEventListener('click', () => {
+            const maxNumber = Math.max(...numbers);
+            document.querySelector('.maxNumber').textContent = maxNumber;
+        });
+    </script>
+
+</body>
+
+</html>

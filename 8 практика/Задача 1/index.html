@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подсчет гласных</title>
+</head>
+<body>
+  <h1>Подсчет гласных букв</h1>
+  <p>Откройте консоль браузера для проверки результата.</p>
+
+  <script>
+    const countVowels = (word) => {
+      const vowels = ['a', 'e', 'i', 'o', 'u', 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
+      return word
+        .toLowerCase()
+        .split('')
+        .filter(char => vowels.includes(char)).length;
+    };
+
+    const word = 'JavaScript';
+    const vowelCount = countVowels(word);
+    console.log(`Количество гласных в слове "${word}": ${vowelCount}`);
+  </script>
+</body>
+</html>
